@@ -1,9 +1,33 @@
-import { useState, useReducer } from "react";
-import { bodyPartData, exerciseData } from "../data/initialData";
+import { useState, useReducer, useEffect } from "react";
+import { bodyPartData } from "../data/initialData";
 import exerciseListReducer from "../reducers/exerciseListReducer";
 import Action from "../enums/actions";
+import axios from "axios";
 
 const useExerciseData = () => {
+
+  let exerciseData = [];
+
+  const [selectedExerciseId, setSelectedExerciseId] = useState();
+
+  const [exerciseList, dispatch] = useReducer(
+    exerciseListReducer,
+    exerciseData
+  );
+
+  useEffect(() => {
+
+    axios.get("http://localhost:7777/exercises")
+        .then(res =>{
+
+          console.log(res.data);
+
+          dispatch({type:Action.LOAD_EXERCISES,value:res.data})
+          setSelectedExerciseId(res.data[0].id)
+        })
+
+  }, []);
+
   exerciseData.sort((a, b) => {
     if (a.name > b.name) {
       return 1;
@@ -14,20 +38,17 @@ const useExerciseData = () => {
     }
   });
 
-  const [selectedExerciseId, setSelectedExerciseId] = useState(
-    exerciseData[0].id
-  );
-
-  const [exerciseList, dispatch] = useReducer(
-    exerciseListReducer,
-    exerciseData
-  );
-
-  const selectedExercise = () =>
-    exerciseList.find((e) => e.id === selectedExerciseId);
+  const selectedExercise = () => {
+    let exercise = exerciseList.find((e) => e.id === selectedExerciseId);
+    return exercise ? exercise : {id: 0,name: "", bodyParts: []};
+  }
+    
 
   const availableBodyPartsForSelection = () => {
     let exercise = selectedExercise();
+    
+    if(!exercise) return [];
+
     return bodyPartData.filter((e) => {
       return !exercise.bodyParts.find((bp) => bp.id === e.id);
     });

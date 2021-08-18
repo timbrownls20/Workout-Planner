@@ -1,0 +1,52 @@
+[
+    {
+      "id": 1,
+      "name": "Bench press",
+      "bodyParts": []
+    },
+    {
+      "id": 2,
+      "name": "Deadlift",
+      "bodyParts": []
+    },
+    {
+      "id": 3,
+      "name": "Deadlift, Sumo",
+      "bodyParts": []
+    },
+    {
+      "id": 4,
+      "name": "Barbell squat",
+      "bodyParts": []
+    }, 
+    {
+      "id": 5,
+      "name": "Push up",
+      "bodyParts": []
+    }, 
+    {
+      "id": 6,
+      "name": "Pull up",
+      "bodyParts": []
+    }, 
+    {
+      "id": 7,
+      "name": "Chin up",
+      "bodyParts": []
+    },
+    {
+      "id": 8,
+      "name": "Dumbbell press",
+      "bodyParts": []
+    },
+    {
+      "id": 9,
+      "name": "Bicep curl",
+      "bodyParts": []
+    },
+    {
+      "id": 10,
+      "name": "Bicep curl, inclined",
+      "bodyParts": []
+    }
+  ]

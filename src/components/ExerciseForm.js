@@ -14,7 +14,7 @@ const ExerciseForm = () => {
   } = useContext(ExerciseDataContext);
 
   const exercise = selectedExercise();
-  const [name, setName] = useState(FormState.EDIT ? exercise.name : "");
+  const [name, setName] = useState(FormState.EDIT && exercise ? exercise.name : "");
 
   const hide = () => {
     setFormState(FormState.UNDEFINED);
@@ -39,7 +39,7 @@ const ExerciseForm = () => {
     if (formState === FormState.NEW) {
       setName("");
     } else {
-      setName(exercise.name);
+      setName(exercise ? exercise.name : null);
     }
   }, [exercise, formState]);
 

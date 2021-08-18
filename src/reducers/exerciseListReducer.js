@@ -5,6 +5,13 @@ const exerciseListReducer = (state, action) => {
   let newExerciseList, newExercise;
 
   switch (action.type) {
+    case Action.LOAD_EXERCISES:
+      newExerciseList = action.value;
+
+      console.log("LOAD_EXERCISES");
+      console.log(newExerciseList);
+
+      return newExerciseList;
     case Action.ADD_EXERCISE:
       newExerciseList = [
         ...state,
