@@ -9,14 +9,20 @@ const exerciseListReducer = (state, action) => {
   switch (action.type) {
     case Action.LOAD_EXERCISES:
       if (config.RefreshDataOnLoad) {
-        newExerciseList = action.value.map((exercise) => {
-          return exercise.bodyParts.map(bodyPart => {
+
+        newExerciseList = action.value.map(exercise => {
+          let remappedBodyParts = exercise.bodyParts.map(bodyPart => {
             return bodyPartData.find(ref => ref.id === bodyPart.id);
           });
+          
+          return {...exercise, bodyParts: remappedBodyParts};
+
         });
       } else {
         newExerciseList = action.value;
       }
+
+      console.log(JSON.stringify(newExerciseList))
 
       break;
     case Action.ADD_EXERCISE:
@@ -64,8 +70,10 @@ const exerciseListReducer = (state, action) => {
       newExerciseList = state;
   }
 
-  axios.post(`${config.Server}/exercises`, newExerciseList);
-
+  //if(action.type !== Action.LOAD_EXERCISES){
+    axios.post(`${config.Server}/exercises`, newExerciseList);
+  //}
+  
   return newExerciseList;
 };
 

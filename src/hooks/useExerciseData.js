@@ -72,8 +72,6 @@ const useExerciseData = () => {
   };
 
   const removeBodyPart = (bodyPartId, exerciseId) => {
-    console.log(`exerciseId ${exerciseId}`);
-
     dispatch({
       type: Action.REMOVE_BODYPART,
       value: {
