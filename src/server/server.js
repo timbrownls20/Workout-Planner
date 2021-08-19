@@ -1,8 +1,11 @@
 const express = require('express');
 const fs = require('fs').promises;
 const cors = require('cors');
+const {config} = require('./config');
 
-let port = 7777;
+console.log(config)
+
+let port = config.Port;
 let app = express();
 
 app.use(
