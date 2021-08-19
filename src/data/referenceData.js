@@ -1,7 +1,7 @@
 const bodyPartData = [
   {
     id: 1,
-    name: "shoulders",
+    name: "deltoids",
   },
   {
     id: 2,
@@ -21,11 +21,11 @@ const bodyPartData = [
   },
   {
     id: 6,
-    name: "core",
+    name: "abomdinals",
   },
   {
     id: 7,
-    name: "upper back",
+    name: "obliques",
   },
   {
     id: 8,
@@ -49,11 +49,15 @@ const bodyPartData = [
   },
   {
     id: 13,
-    name: "cardio",
+    name: "lower back",
   },
   {
     id: 14,
-    name: "priming",
+    name: "traps",
+  },
+  {
+    id: 15,
+    name: "hip flexors",
   }
 ];
 
