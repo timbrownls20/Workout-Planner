@@ -1,8 +1,9 @@
 import { useState, useReducer, useEffect } from "react";
+import axios from "axios";
 import { bodyPartData } from "../data/initialData";
 import exerciseListReducer from "../reducers/exerciseListReducer";
+import config from "../config/config";
 import Action from "../enums/actions";
-import axios from "axios";
 
 const useExerciseData = () => {
   let exerciseData = [];
@@ -15,13 +16,14 @@ const useExerciseData = () => {
   );
 
   useEffect(() => {
-    axios.get("http://localhost:7777/exercises").then((res) => {
+    axios.get(`${config.Server}/exercises`).then((res) => {
+      res.data.sort(exerciseDataSorter);
       dispatch({ type: Action.LOAD_EXERCISES, value: res.data });
       setSelectedExerciseId(res.data[0].id);
     });
   }, []);
 
-  exerciseData.sort((a, b) => {
+  const exerciseDataSorter = (a, b) => {
     if (a.name > b.name) {
       return 1;
     } else if (a.name < b.name) {
@@ -29,7 +31,7 @@ const useExerciseData = () => {
     } else {
       return 0;
     }
-  });
+  };
 
   const selectedExercise = () => {
     let exercise = exerciseList.find((e) => e.id === selectedExerciseId);
