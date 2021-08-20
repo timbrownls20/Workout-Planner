@@ -44,6 +44,14 @@ const useExerciseData = () => {
     }
   }
 
+ const isLastPage = (page, pageSize) => {
+   return page * pageSize > exerciseList.length;
+ }
+
+ const lastPage = (pageSize) => {
+   return Math.ceil(exerciseList.length / pageSize);
+ }
+
   const availableBodyPartsForSelection = () => {
     let exercise = selectedExercise();
 
@@ -57,7 +65,7 @@ const useExerciseData = () => {
   const exerciseListPage = (page, pageSize) => {
 
     if(page < 1) page = 1;
-    if((page - 1) * pageSize > exerciseList.length) page =  Math.ceil(exerciseList.length / pageSize);
+    if(isLastPage(page, pageSize)) page = lastPage(pageSize);
     return exerciseList.slice((page - 1) * pageSize, (page * pageSize));
   }
 
@@ -100,6 +108,7 @@ const useExerciseData = () => {
     selectFirstExercise,
     exerciseList,
     exerciseListPage,
+    isLastPage,
     addExercise,
     editExercise,
     removeExercise,
