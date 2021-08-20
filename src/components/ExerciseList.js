@@ -9,8 +9,8 @@ const ExerciseList = () => {
     useContext(ExerciseDataContext);
 
   return (
-    <div className="col-3">
-      <ul className="list-group exercise-list">
+    <div className="col-3 exercise-list">
+      <ul className="list-group">
         {exerciseList.map((element) => {
           return (
             <li

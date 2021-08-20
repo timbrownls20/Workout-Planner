@@ -4,7 +4,7 @@ const bodyPartData = [
     name: "deltoids",
     area: 
     {
-      id: 1,
+      id: 6,
       name: "shoulder"
     }
   },
@@ -13,7 +13,7 @@ const bodyPartData = [
     name: "biceps",
     area: 
     {
-      id: 3,
+      id: 1,
       name: "arms"
     }
   },
@@ -22,7 +22,7 @@ const bodyPartData = [
     name: "triceps",
     area: 
     {
-      id: 3,
+      id: 1,
       name: "arms"
     }
   },
@@ -31,13 +31,13 @@ const bodyPartData = [
     name: "forearms",
     area: 
     {
-      id: 3,
+      id: 1,
       name: "arms"
     }
   },
   {
     id: 5,
-    name: "chest",
+    name: "pecs",
     area: 
     {
       id: 2,
@@ -49,7 +49,7 @@ const bodyPartData = [
     name: "abomdinals",
     area: 
     {
-      id: 6,
+      id: 4,
       name: "core"
     }
   },
@@ -58,7 +58,7 @@ const bodyPartData = [
     name: "obliques",
     area: 
     {
-      id: 6,
+      id: 4,
       name: "core"
     }
   },
@@ -67,7 +67,7 @@ const bodyPartData = [
     name: "lats",
     area: 
     {
-      id: 4,
+      id: 2,
       name: "back"
     }
   },
@@ -112,7 +112,7 @@ const bodyPartData = [
     name: "erector spinae",
     area: 
     {
-      id: 4,
+      id: 2,
       name: "back"
     }
   },
@@ -121,7 +121,7 @@ const bodyPartData = [
     name: "traps",
     area: 
     {
-      id: 1,
+      id: 6,
       name: "shoulder"
     }
   },
@@ -130,7 +130,7 @@ const bodyPartData = [
     name: "hip flexors",
     area: 
     {
-      id: 6,
+      id: 4,
       name: "core"
     } 
   }

@@ -3,6 +3,9 @@ import { Draggable } from "react-beautiful-dnd";
 import BodyPart from "./BodyPart";
 
 const BodyPartList = ({ provided, data, isDraggingOver }) => {
+
+  data = data.sort(bodyPartSort);
+
   return (
     <div
       className={
@@ -21,7 +24,7 @@ const BodyPartList = ({ provided, data, isDraggingOver }) => {
           >
             {provided => (
               <div>
-                <BodyPart text={element.name} provided={provided}></BodyPart>
+                <BodyPart text={`${element.area.name}: ${element.name}`} provided={provided}></BodyPart>
               </div>
             )}
           </Draggable>
@@ -33,3 +36,17 @@ const BodyPartList = ({ provided, data, isDraggingOver }) => {
 };
 
 export default BodyPartList;
+
+
+const bodyPartSort = (a, b) => {
+
+  if(a.area.id > b.area.id){
+    return 1;
+  }
+  else if(a.area.id < b.area.id){
+    return -1;
+  }
+  else if(a.area.id === b.area.id){
+    return 0;
+  }
+}

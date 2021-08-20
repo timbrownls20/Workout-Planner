@@ -8,6 +8,7 @@ const ExerciseForm = () => {
   const {
     selectedExerciseId,
     selectedExercise,
+    setSelectedExerciseId,
     addExercise,
     editExercise,
     removeExercise,
@@ -23,8 +24,9 @@ const ExerciseForm = () => {
   const add = (name) => {
     addExercise(name);
     setFormState(FormState.UNDEFINED);
-  };
-
+    setSelectedExerciseId(null);
+  }
+  
   const edit = (id, name) => {
     editExercise(id, name);
     setFormState(FormState.UNDEFINED);

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
@@ -15,10 +15,17 @@ const ExerciseManager = () => {
   const {
     selectedExerciseId,
     selectedExercise,
+    selectFirstExercise,
     addBodyPart,
     removeBodyPart,
     availableBodyPartsForSelection,
   } = useContext(ExerciseDataContext);
+
+  useEffect(() => {
+    if(!selectedExerciseId){
+      selectFirstExercise();
+    }
+  }, [selectedExerciseId, selectFirstExercise]);
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
@@ -55,7 +62,7 @@ const ExerciseManager = () => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row exercise-bodyparts">
           <ExerciseList></ExerciseList>
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="source">

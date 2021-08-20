@@ -38,13 +38,17 @@ const useExerciseData = () => {
     return exercise ? exercise : { id: 0, name: "", bodyParts: [] };
   };
 
+  const selectFirstExercise = () => {
+    setSelectedExerciseId(exerciseList[0].id);
+  }
+
   const availableBodyPartsForSelection = () => {
     let exercise = selectedExercise();
 
     if (!exercise) return [];
 
     return bodyPartData.filter((e) => {
-      return !exercise.bodyParts.find((bp) => bp.id === e.id);
+      return !exercise.bodyParts.find(bp => bp.id === e.id);
     });
   };
 
@@ -84,6 +88,7 @@ const useExerciseData = () => {
     selectedExerciseId,
     setSelectedExerciseId,
     selectedExercise,
+    selectFirstExercise,
     exerciseList,
     addExercise,
     editExercise,

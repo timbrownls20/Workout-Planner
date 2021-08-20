@@ -1,5 +1,6 @@
 .droppable {
     min-height: 600px;
+    max-height: 800px;
     margin: 1em;
     padding: 1em;
     border-radius: 2em;
@@ -24,6 +25,7 @@
 .exercise-list
 {
     margin: 1.2em;
+    height: 600px;
 }
 
 .exercise-list li
@@ -46,6 +48,16 @@
     cursor: pointer;
     opacity: 0.8;
 }
+
+/* .exercise-bodyparts {
+    background-color: red;
+    height: 200px;
+}
+
+.exercise-bodyparts>div {
+    background-color: blue;
+    height: 150px;
+} */
 
 .modal{
     display: block;
