@@ -39,7 +39,9 @@ const useExerciseData = () => {
   };
 
   const selectFirstExercise = () => {
-    setSelectedExerciseId(exerciseList[0].id);
+    if(exerciseList && exerciseList.length > 0){
+      setSelectedExerciseId(exerciseList[0].id);
+    }
   }
 
   const availableBodyPartsForSelection = () => {
