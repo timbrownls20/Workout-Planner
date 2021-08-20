@@ -51,7 +51,7 @@ const ExerciseManager = () => {
         <hr />
 
         <div className="row">
-          <div className="col-12 d-flex exercises-toolbar">
+          <div className="col-3 d-flex exercises-toolbar">
             <div>
               <FontAwesomeIcon
                 icon={faPlusCircle}
@@ -60,6 +60,9 @@ const ExerciseManager = () => {
               />
             </div>
           </div>
+          <div className="col-7 exercise-heading d-flex justify-content-center">
+              <h5>{selectedExercise().name}</h5>
+            </div>
         </div>
 
         <div className="row exercise-bodyparts">

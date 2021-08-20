@@ -49,16 +49,6 @@
     opacity: 0.8;
 }
 
-/* .exercise-bodyparts {
-    background-color: red;
-    height: 200px;
-}
-
-.exercise-bodyparts>div {
-    background-color: blue;
-    height: 150px;
-} */
-
 .modal{
     display: block;
     visibility: hidden;
@@ -82,3 +72,6 @@
     transition: 0.2s linear; 
 }
 
+.debug {
+    background-color: red;
+}
