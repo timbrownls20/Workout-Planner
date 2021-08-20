@@ -54,6 +54,13 @@ const useExerciseData = () => {
     });
   };
 
+  const exerciseListPage = (page, pageSize) => {
+
+    if(page < 1) page = 1;
+    if((page - 1) * pageSize > exerciseList.length) page =  Math.ceil(exerciseList.length / pageSize);
+    return exerciseList.slice((page - 1) * pageSize, (page * pageSize));
+  }
+
   const addExercise = (name) => {
     dispatch({ type: Action.ADD_EXERCISE, value: name });
   };
@@ -92,6 +99,7 @@ const useExerciseData = () => {
     selectedExercise,
     selectFirstExercise,
     exerciseList,
+    exerciseListPage,
     addExercise,
     editExercise,
     removeExercise,
