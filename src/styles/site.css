@@ -26,6 +26,7 @@
 {
     margin: 1.2em;
     height: 600px;
+    position: relative;
 }
 
 .exercise-list li
@@ -47,6 +48,13 @@
     margin: 0 1em;
     cursor: pointer;
     opacity: 0.8;
+}
+
+.exercise-pager {
+    width: 100%;
+    position:absolute;
+    bottom: -15px;
+    left:-5px
 }
 
 .modal{

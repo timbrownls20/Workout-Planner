@@ -34,7 +34,7 @@ const ExerciseList = () => {
           );
         })}
       </ul>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center exercise-pager">
         <button className="btn btn-link mt-2" disabled={page === 1} onClick={() => setPage(page - 1)}>
           &lt;&lt;
         </button>
