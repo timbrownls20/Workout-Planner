@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "description": "Workout 1",
+        "sets": []
+    }, 
+    {
+        "id": "2",
+        "description": "Workout 2",
+        "sets": []
+    }, 
+    {
+        "id": "3",
+        "description": "Workout 3",
+        "sets": []
+    }    
+]

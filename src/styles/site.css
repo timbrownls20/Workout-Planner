@@ -22,24 +22,24 @@
     transition: ease-in 0.5s;
 }
 
-.exercise-list
+.exercise-list, .workout-list
 {
     margin: 1.2em;
     height: 600px;
     position: relative;
 }
 
-.exercise-list li
+.exercise-list li, .workout-list li
 {
     padding: 1em;
 }
 
-.exercise-list li:hover{
+.exercise-list li:hover, .workout-list li:hover {
     background: skyblue;
     cursor: pointer;
 }
 
-.exercise-selected{
+.exercise-selected, .workout-selected {
     background: skyblue;
     cursor: pointer;
 }

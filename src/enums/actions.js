@@ -8,4 +8,9 @@ const Action = {
     REMOVE_BODYPART:"REMOVE_BODYPART"
 }
 
+const WorkoutListActions = {
+    LOAD_WORKOUTS:"LOAD_WORKOUTS",
+}
+
 export default Action;
+export {WorkoutListActions}
