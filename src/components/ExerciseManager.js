@@ -42,14 +42,7 @@ const ExerciseManager = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-12 d-flex justify-content-end">
-            <h3 className="p-2 mt-2">Workout Planner</h3>
-          </div>
-        </div>
-        <hr />
-
+      <div className="container-fluid mt-4">
         <div className="row">
           <div className="col-3 d-flex exercises-toolbar">
             <div>

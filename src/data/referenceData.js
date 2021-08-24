@@ -109,7 +109,7 @@ const bodyPartData = [
   },
   {
     id: 13,
-    name: "erector spinae",
+    name: "lower",
     area: 
     {
       id: 2,
@@ -132,6 +132,15 @@ const bodyPartData = [
     {
       id: 4,
       name: "core"
+    } 
+  },
+  {
+    id: 16,
+    name: "rear delts",
+    area: 
+    {
+      id: 6,
+      name: "shoulder"
     } 
   }
 ];
