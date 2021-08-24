@@ -1,17 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { FormState } from "../enums/enums";
 import { ExerciseDataContext } from "../config/ExerciseDataContext";
-import { FormStateContext } from "../config/FormStateContext";
 import BodyPartList from "./BodyPartList";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ExerciseList";
+import ExerciseAdd from "./ExerciseAdd";
 import DebugPanel from "./DebugPanel";
 
 const ExerciseManager = () => {
-  const { setFormState } = useContext(FormStateContext);
   const {
     selectedExerciseId,
     selectedExercise,
@@ -44,15 +40,7 @@ const ExerciseManager = () => {
     <>
       <div className="container-fluid mt-4">
         <div className="row">
-          <div className="col-3 d-flex exercises-toolbar">
-            <div>
-              <FontAwesomeIcon
-                icon={faPlusCircle}
-                size="2x"
-                onClick={() => setFormState(FormState.NEW)}
-              />
-            </div>
-          </div>
+          <ExerciseAdd ></ExerciseAdd>
           <div className="col-7 exercise-heading d-flex justify-content-center">
               <h5>{selectedExercise().name}</h5>
             </div>

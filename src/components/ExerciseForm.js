@@ -67,7 +67,7 @@ const ExerciseForm = () => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">
-              {formState === FormState.New ? "Add Exercise" : "Edit Exercise"}
+              {formState === FormState.NEW ? "Add Exercise" : "Edit Exercise"}
             </h5>
             <button
               type="button"

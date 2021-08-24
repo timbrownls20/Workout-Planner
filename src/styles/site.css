@@ -44,10 +44,16 @@
     cursor: pointer;
 }
 
-.exercises-toolbar div {
+.exercises-toolbar div:first-child {
     margin: 0 1em;
+}
+
+.exercises-toolbar {
     cursor: pointer;
-    opacity: 0.8;
+}
+
+.exercises-toolbar:hover {
+    text-decoration: underline;
 }
 
 .exercise-pager {
