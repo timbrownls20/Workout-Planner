@@ -22,24 +22,24 @@
     transition: ease-in 0.5s;
 }
 
-.exercise-list, .workout-list
+.exercise-list
 {
     margin: 1.2em;
     height: 600px;
     position: relative;
 }
 
-.exercise-list li, .workout-list li
+.exercise-list li
 {
     padding: 1em;
 }
 
-.exercise-list li:hover, .workout-list li:hover {
+.exercise-list li:hover {
     background: skyblue;
     cursor: pointer;
 }
 
-.exercise-selected, .workout-selected {
+.exercise-selected {
     background: skyblue;
     cursor: pointer;
 }
@@ -61,6 +61,23 @@
     position:absolute;
     bottom: -15px;
     left:-5px
+}
+
+.workout 
+{
+    margin: 1em;
+    width: 20em;
+    height: 10em;
+    transition: ease-in 0.1s;
+    cursor: pointer;
+}
+
+.workout:hover
+{
+    background-color: skyblue;
+    width: 22em;
+    height: 12em;
+    transition: ease-in 0.1s;
 }
 
 .modal{

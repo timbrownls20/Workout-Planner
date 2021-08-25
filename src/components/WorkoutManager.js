@@ -19,14 +19,18 @@ const WorkoutManager = () => {
 
   return (
     <div className="container-fluid mt-4">
-      <h5>Workout Manager</h5>
       <div className="row">
-        <div className="col-3">
-          <ul className="list-group workout-list">
-            {workoutList.map((element) => {
-              return <li className="list-group-item">{element.description}</li>;
-            })}
-          </ul>
+        <div className="col-12 d-flex justify-content-center">
+          {workoutList.map((element) => {
+            return (
+              <div className="card workout" key={element.id}>
+                <div className="card-body">
+                  <h5 className="card-title">{element.description}</h5>
+                  <div className="card-text">No exercise sets</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
