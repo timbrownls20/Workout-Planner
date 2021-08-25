@@ -3,6 +3,7 @@ import axios from "axios";
 import workoutListReducer from "../reducers/workoutListReducer";
 import config from "../config/config";
 import { WorkoutListActions as Actions } from "../enums/actions";
+import Workout from "./Workout";
 
 const WorkoutManager = () => {
   const [workoutList, dispatch] = useReducer(workoutListReducer, []);
@@ -21,16 +22,9 @@ const WorkoutManager = () => {
     <div className="container-fluid mt-4">
       <div className="row">
         <div className="col-12 d-flex justify-content-center">
-          {workoutList.map((element) => {
-            return (
-              <div className="card workout" key={element.id}>
-                <div className="card-body">
-                  <h5 className="card-title">{element.description}</h5>
-                  <div className="card-text">No exercise sets</div>
-                </div>
-              </div>
-            );
-          })}
+          {workoutList.map(element => {
+            return <Workout workout={element}></Workout>
+          })}  
         </div>
       </div>
     </div>
