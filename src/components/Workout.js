@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { FormStateContext } from '../config/FormStateContext';
+import { FormState } from '../enums/enums';
 
 const Workout = ({workout}) => {
+
+    const {setFormState} = useContext(FormStateContext);
+
     return (
-        <div className="card workout" key={workout.id}>
+        <div className="card workout" onClick={() => setFormState(FormState.EDIT)}>
           <div className="card-body">
             <h5 className="card-title">{workout.description}</h5>
             <div className="card-text">No exercise sets</div>
