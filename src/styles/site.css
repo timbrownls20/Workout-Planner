@@ -80,6 +80,17 @@
     transition: ease-in 0.1s;
 }
 
+.workout-form-header
+{
+    height: 10%;
+    border-bottom: silver 1px solid;
+}
+
+.workout-form-body
+{
+    height: 90%;
+}
+
 .modal{
     display: block;
     visibility: hidden;
@@ -121,7 +132,7 @@
     transition: ease-in 0.25s;
 }
 
-.overlay>div
+.overlay-inner
 {
     background-color: white;
     height:92%;
@@ -131,7 +142,8 @@
 .overlay .close
 {
     color: gray;
-    margin: -2px;
+    margin-top: 5px; 
+    margin-right: 5px;
     cursor:pointer;
 }
 

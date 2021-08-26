@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Workout from "./Workout";
-import useWorkoutData from "../hooks/useWorkoutData";
+import { WorkoutDataContext } from "../context/WorkoutDataContext";
 import WorkoutForm from "./WorkoutForm";
 
 const WorkoutManager = () => {
-  const { workoutList, loadWorkouts } = useWorkoutData();
+  const { workoutList, loadWorkouts } = useContext(WorkoutDataContext);
 
   useEffect(() => {
     loadWorkouts();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

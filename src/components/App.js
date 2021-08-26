@@ -5,27 +5,28 @@ import WorkoutManager from "./WorkoutManager";
 import ExerciseManager from "./ExerciseManager";
 import { ExerciseDataProvider } from "../context/ExerciseDataContext";
 import { FormStateProvider } from "../context/FormStateContext";
+import { WorkoutDataProvider } from "../context/WorkoutDataContext";
 
 const App = () => {
-
-
   return (
     <Router>
       <NavBar />
-      <Switch>
-        <Route exact path="/">
-          <FormStateProvider>
-            <WorkoutManager />
-          </FormStateProvider>
-        </Route>
-        <Route path="/exercise">
-          <ExerciseDataProvider>
+      <ExerciseDataProvider>
+        <Switch>
+          <Route exact path="/">
+            <WorkoutDataProvider>
+              <FormStateProvider>
+                <WorkoutManager />
+              </FormStateProvider>
+            </WorkoutDataProvider>
+          </Route>
+          <Route path="/exercise">
             <FormStateProvider>
               <ExerciseManager></ExerciseManager>
             </FormStateProvider>
-          </ExerciseDataProvider>
-        </Route>
-      </Switch>
+          </Route>
+        </Switch>
+      </ExerciseDataProvider>
     </Router>
   );
 };
