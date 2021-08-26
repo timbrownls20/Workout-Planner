@@ -2,7 +2,7 @@ import { useState, useReducer, useEffect } from "react";
 import axios from "axios";
 import { bodyPartData } from "../data/referenceData";
 import exerciseListReducer from "../reducers/exerciseListReducer";
-import config from "../config/config";
+import config from "../data/config";
 import Action from "../enums/actions";
 
 const useExerciseData = () => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import config from "../config/config";
-import { ExerciseDataContext } from "../config/ExerciseDataContext";
+import config from "../data/config";
+import { ExerciseDataContext } from "../context/ExerciseDataContext";
 
 const DebugPanel = () => {
   const { selectedExercise, exerciseList } = useContext(ExerciseDataContext);

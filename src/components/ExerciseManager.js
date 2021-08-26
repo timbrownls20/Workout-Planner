@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { ExerciseDataContext } from "../config/ExerciseDataContext";
+import { ExerciseDataContext } from "../context/ExerciseDataContext";
 import BodyPartList from "./BodyPartList";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ExerciseList";

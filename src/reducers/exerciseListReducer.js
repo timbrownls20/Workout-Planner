@@ -1,7 +1,7 @@
 import axios from "axios";
 import Action from "../enums/actions";
 import { bodyPartData } from "../data/referenceData";
-import config from "../config/config";
+import config from "../data/config";
 
 const exerciseListReducer = (state, action) => {
   let newExerciseList, newExercise;

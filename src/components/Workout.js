@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { FormStateContext } from '../config/FormStateContext';
+import { FormStateContext } from '../context/FormStateContext';
 import { FormState } from '../enums/enums';
 
 const Workout = ({workout}) => {

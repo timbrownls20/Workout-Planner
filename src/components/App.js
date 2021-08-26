@@ -3,8 +3,8 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./NavBar";
 import WorkoutManager from "./WorkoutManager";
 import ExerciseManager from "./ExerciseManager";
-import { ExerciseDataProvider } from "../config/ExerciseDataContext";
-import { FormStateProvider } from "../config/FormStateContext";
+import { ExerciseDataProvider } from "../context/ExerciseDataContext";
+import { FormStateProvider } from "../context/FormStateContext";
 
 const App = () => {
 

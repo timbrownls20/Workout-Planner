@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import axios from "axios";
 import workoutListReducer from "../reducers/workoutListReducer";
-import config from "../config/config";
+import config from "../data/config";
 import { WorkoutListActions as Actions } from "../enums/actions";
 
 const useWorkoutData = () => {

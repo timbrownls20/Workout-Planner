@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
-import { FormStateContext } from "../config/FormStateContext";
+import { FormStateContext } from "../context/FormStateContext";
 import { FormState } from "../enums/enums";
 
 const ExerciseAdd = () => {
