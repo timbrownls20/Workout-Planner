@@ -34,7 +34,7 @@ const ExerciseList = ({add}) => {
               onDoubleClick={() => setFormState(FormState.EDIT)}
             >
               {element.name}
-              {selectedExerciseId === element.id && add ? <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon> : null}
+              {selectedExerciseId === element.id && add ? <FontAwesomeIcon icon={faPlus} onClick={add}></FontAwesomeIcon> : null}
             </li>
           );
         })}

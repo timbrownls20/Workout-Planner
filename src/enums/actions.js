@@ -10,6 +10,7 @@ const Action = {
 
 const WorkoutListActions = {
     LOAD_WORKOUTS:"LOAD_WORKOUTS",
+    ADD_EXERCISE:"ADD_EXERCISE"
 }
 
 export default Action;

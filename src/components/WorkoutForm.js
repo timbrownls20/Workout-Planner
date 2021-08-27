@@ -3,12 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 import { FormStateContext } from "../context/FormStateContext";
 import { WorkoutDataContext } from "../context/WorkoutDataContext";
+import { ExerciseDataContext } from "../context/ExerciseDataContext";
 import { FormState } from "../enums/enums";
 import ExerciseList from "./ExerciseList";
 
 const WorkoutForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);
-  const { selectedWorkout } = useContext(WorkoutDataContext);
+  const { selectedWorkout, addExercise } = useContext(WorkoutDataContext);
+  const {selectedExercise } = useContext(ExerciseDataContext)
+
+  const add = () => {
+    addExercise(selectedWorkout.id, selectedExercise())
+  }
 
   return (
     <div
@@ -33,10 +39,22 @@ const WorkoutForm = () => {
         </div>
         <div className="row workout-form-body gx-0">
           <div className="col-3 ">
-            <ExerciseList add={() => console.log("adding")} />
+            <ExerciseList add={add} />
           </div>
-          <div className="col-4 d-flex justify-content-start align-items-center">
-            no sets
+          <div className="col-3 d-flex justify-content-center mt-4">
+          
+            <ul className="list-group">
+
+              {selectedWorkout.sets.map((exercise,index) => {
+                return <li className="list-group-item" key={index}>{index + 1}. {exercise.name}</li>
+              })
+
+              }
+
+             </ul> 
+             </div>
+             <div className="col-3 d-flex justify-content-center mt-4">
+             <code>{JSON.stringify(selectedWorkout)}</code> 
           </div>
         </div>
       </div>

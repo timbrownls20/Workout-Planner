@@ -10,6 +10,7 @@ export const WorkoutDataProvider = ({ children }) => {
     selectedWorkoutId,
     setSelectedWorkoutId,
     selectedWorkout,
+    addExercise,
   } = useWorkoutData();
 
   const provider = {
@@ -18,6 +19,7 @@ export const WorkoutDataProvider = ({ children }) => {
     selectedWorkoutId,
     setSelectedWorkoutId,
     selectedWorkout,
+    addExercise,
   };
 
   return (
