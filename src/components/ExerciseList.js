@@ -28,7 +28,9 @@ const ExerciseList = ({add}) => {
               }
               id={element.id}
               key={element.id}
-              onClick={(e) => setSelectedExerciseId(parseInt(e.target.id))}
+              onClick={(e) => {
+                if(e.target.id) setSelectedExerciseId(parseInt(e.target.id))
+              }}
               onDoubleClick={() => setFormState(FormState.EDIT)}
             >
               {element.name}
