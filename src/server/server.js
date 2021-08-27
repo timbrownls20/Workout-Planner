@@ -31,7 +31,6 @@ app.get("/exercises", async (req, res) => {
 });
 
 app.post("/exercises", async (req, res) => {
-  console.log(req.body);
   await saveData("src/data/exerciseData/Current.json", req.body);
   res.sendStatus(200);
 });
