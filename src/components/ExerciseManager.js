@@ -5,7 +5,6 @@ import BodyPartList from "./BodyPartList";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ExerciseList";
 import ExerciseAdd from "./ExerciseAdd";
-import DebugPanel from "./DebugPanel";
 
 const ExerciseManager = () => {
   const {
@@ -18,7 +17,7 @@ const ExerciseManager = () => {
   } = useContext(ExerciseDataContext);
 
   useEffect(() => {
-    if(!selectedExerciseId){
+    if (!selectedExerciseId) {
       selectFirstExercise();
     }
   }, [selectedExerciseId, selectFirstExercise]);
@@ -38,16 +37,17 @@ const ExerciseManager = () => {
 
   return (
     <>
-      <div className="container-fluid mt-4">
-        <div className="row">
-          <ExerciseAdd ></ExerciseAdd>
+        <div className="row mt-4">
+          <ExerciseAdd></ExerciseAdd>
           <div className="col-7 exercise-heading d-flex justify-content-center">
-              <h5>{selectedExercise().name}</h5>
-            </div>
+            <h5>{selectedExercise().name}</h5>
+          </div>
         </div>
 
         <div className="row exercise-bodyparts">
-          <ExerciseList></ExerciseList>
+          <div className="col-3">
+            <ExerciseList></ExerciseList>
+          </div>
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="source">
               {(provided, snapshot) => (
@@ -68,9 +68,7 @@ const ExerciseManager = () => {
               )}
             </Droppable>
           </DragDropContext>
-          <DebugPanel></DebugPanel>
         </div>
-      </div>
       <ExerciseForm></ExerciseForm>
     </>
   );

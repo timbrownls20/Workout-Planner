@@ -9,25 +9,27 @@ import { WorkoutDataProvider } from "../context/WorkoutDataContext";
 
 const App = () => {
   return (
-    <Router>
-      <NavBar />
-      <ExerciseDataProvider>
-        <Switch>
-          <Route exact path="/">
-            <WorkoutDataProvider>
+    <div className="container-fluid">
+      <Router>
+        <NavBar />
+        <ExerciseDataProvider>
+          <Switch>
+            <Route exact path="/">
+              <WorkoutDataProvider>
+                <FormStateProvider>
+                  <WorkoutManager />
+                </FormStateProvider>
+              </WorkoutDataProvider>
+            </Route>
+            <Route path="/exercise">
               <FormStateProvider>
-                <WorkoutManager />
+                <ExerciseManager></ExerciseManager>
               </FormStateProvider>
-            </WorkoutDataProvider>
-          </Route>
-          <Route path="/exercise">
-            <FormStateProvider>
-              <ExerciseManager></ExerciseManager>
-            </FormStateProvider>
-          </Route>
-        </Switch>
-      </ExerciseDataProvider>
-    </Router>
+            </Route>
+          </Switch>
+        </ExerciseDataProvider>
+      </Router>
+    </div>
   );
 };
 

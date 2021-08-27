@@ -13,7 +13,7 @@ const WorkoutManager = () => {
 
   return (
     <>
-      <div className="container-fluid mt-4">
+      <div className="mt-4">
         <div className="row">
           <div className="col-12 d-flex justify-content-center">
             {workoutList.map((element) => {

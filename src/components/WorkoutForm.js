@@ -4,6 +4,7 @@ import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 import { FormStateContext } from "../context/FormStateContext";
 import { WorkoutDataContext } from "../context/WorkoutDataContext";
 import { FormState } from "../enums/enums";
+import ExerciseList from "./ExerciseList";
 
 const WorkoutForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);
@@ -12,7 +13,7 @@ const WorkoutForm = () => {
   return (
     <div
       className={
-        "overlay container-fluid d-flex justify-content-center align-items-center" +
+        "overlay d-flex justify-content-center align-items-center" +
         (formState === FormState.EDIT ? " overlay-show" : "")
       }
     >
@@ -31,8 +32,11 @@ const WorkoutForm = () => {
           </div>
         </div>
         <div className="row workout-form-body gx-0">
-          <div className="col-11 d-flex justify-content-center align-items-center">
-            <h5>workout details</h5>
+          <div className="col-3 ">
+            <ExerciseList add={() => console.log("adding")} />
+          </div>
+          <div className="col-4 d-flex justify-content-start align-items-center">
+            no sets
           </div>
         </div>
       </div>

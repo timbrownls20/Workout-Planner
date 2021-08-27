@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { ExerciseDataContext } from "../context/ExerciseDataContext";
 import { FormStateContext } from "../context/FormStateContext";
 import { FormState } from "../enums/enums";
 import config from "../data/config";
 
-const ExerciseList = () => {
+const ExerciseList = ({add}) => {
   const { setFormState } = useContext(FormStateContext);
   const {
     selectedExerciseId,
@@ -15,13 +17,13 @@ const ExerciseList = () => {
   const [page, setPage] = useState(1);
 
   return (
-    <div className="col-3 exercise-list">
+    <div className="exercise-list d-flex flex-column justify-content-between">
       <ul className="list-group">
         {exerciseListPage(page, config.PageSize).map((element) => {
           return (
             <li
               className={
-                "list-group-item" +
+                "list-group-item d-flex justify-content-between align-items-center" +
                 (selectedExerciseId === element.id ? " exercise-selected" : "")
               }
               id={element.id}
@@ -30,6 +32,7 @@ const ExerciseList = () => {
               onDoubleClick={() => setFormState(FormState.EDIT)}
             >
               {element.name}
+              {selectedExerciseId === element.id && add ? <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon> : null}
             </li>
           );
         })}
