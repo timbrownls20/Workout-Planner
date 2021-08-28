@@ -6,15 +6,16 @@ import { WorkoutDataContext } from "../context/WorkoutDataContext";
 import { ExerciseDataContext } from "../context/ExerciseDataContext";
 import { FormState } from "../enums/enums";
 import ExerciseList from "./ExerciseList";
+import WorkoutExercise from "./WorkoutExercise";
 
 const WorkoutForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);
   const { selectedWorkout, addExercise } = useContext(WorkoutDataContext);
-  const {selectedExercise } = useContext(ExerciseDataContext)
+  const { selectedExercise } = useContext(ExerciseDataContext);
 
   const add = () => {
-    addExercise(selectedWorkout.id, selectedExercise())
-  }
+    addExercise(selectedWorkout.id, selectedExercise());
+  };
 
   return (
     <div
@@ -42,20 +43,15 @@ const WorkoutForm = () => {
             <ExerciseList add={add} />
           </div>
           <div className="col-3 d-flex justify-content-center mt-4">
-          
             <ul className="list-group">
-
-              {selectedWorkout.sets.map((exercise,index) => {
-                return <li className="list-group-item" key={index}>{index + 1}. {exercise.name}</li>
-              })
-
-              }
-
-             </ul> 
-             </div>
-             <div className="col-3 d-flex justify-content-center mt-4">
-             <code>{JSON.stringify(selectedWorkout)}</code> 
+              {selectedWorkout.sets.map((exercise, index) => (
+                <WorkoutExercise workoutId={selectedWorkout.id} exercise={exercise} index={index} key={index} />
+              ))}
+            </ul>
           </div>
+          <div className="col-3 d-flex justify-content-center mt-4">
+            <code>{JSON.stringify(selectedWorkout)}</code>
+            </div>
         </div>
       </div>
     </div>

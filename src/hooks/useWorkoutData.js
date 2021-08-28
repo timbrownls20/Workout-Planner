@@ -24,6 +24,13 @@ const useWorkoutData = () => {
     });
   };
 
+  const removeExercise = (workoutId, order) => {
+    dispatch({
+      type: WorkoutListActions.REMOVE_EXERCISE,
+      value: { workoutId, order },
+    });
+  };
+
   const getSelectedWorkout = () => {
     let workout = workoutList.find((e) => e.id === selectedWorkoutId);
     return workout ? workout : { id: 0, description: "", sets: [] };
@@ -38,6 +45,7 @@ const useWorkoutData = () => {
     setSelectedWorkoutId,
     selectedWorkout,
     addExercise,
+    removeExercise,
   };
 };
 

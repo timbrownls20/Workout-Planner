@@ -94,7 +94,20 @@
     height: 90%;
 }
 
-.modal{
+.workout-exercise
+{
+    min-width:200px;
+    padding:0.8em;
+}
+
+.workout-exercise-remove
+{
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.modal
+{
     display: block;
     visibility: hidden;
 }
