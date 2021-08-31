@@ -13,7 +13,7 @@
 .draggable {
     margin: 0.5em;
     background-color: linen;
-    cursor: pointer;
+    cursor: move;
     text-align: center;
     width: 12em
 }
@@ -96,8 +96,14 @@
 
 .workout-exercise
 {
-    min-width:200px;
+    min-width:300px;
     padding:0.8em;
+    
+}
+
+.workout-exercise>span:first-of-type
+{
+    cursor:move;
 }
 
 .workout-exercise-remove
