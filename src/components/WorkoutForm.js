@@ -7,6 +7,7 @@ import { ExerciseDataContext } from "../context/ExerciseDataContext";
 import { FormState } from "../enums/enums";
 import ExerciseList from "./ExerciseList";
 import WorkoutExercise from "./WorkoutExercise";
+import config from "../data/config";
 
 const WorkoutForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);
@@ -49,9 +50,12 @@ const WorkoutForm = () => {
               ))}
             </ul>
           </div>
+          {config.Debug ? (
           <div className="col-3 d-flex justify-content-center mt-4">
             <code>{JSON.stringify(selectedWorkout)}</code>
             </div>
+          ) : null
+          }
         </div>
       </div>
     </div>

@@ -10,10 +10,14 @@ const workoutListReducer = (state, action) => {
       break;
     case Action.ADD_EXERCISE:
       newWorkout = { ...state.find((e) => e.id === action.value.workoutId) };
-      let index = newWorkout.sets.length + 1;
+
+      let order = newWorkout.sets.length > 0 ?_.maxBy(newWorkout.sets, (e) => {
+        return e.order
+      }).order + 1: 1;
+
       let exercise = {
         ..._.pick(action.value.exercise, "id", "name"),
-        order: index,
+        order: order,
       };
       newWorkout.sets.push(exercise);
       newState = state.map((element) =>
@@ -26,8 +30,12 @@ const workoutListReducer = (state, action) => {
         return parseInt(e.order) !== parseInt(action.value.order);
       });
 
-      console.log(newWorkout.sets);
-
+      //..reorder
+      newWorkout.sets.map((element, index) => {
+        element.order = index + 1;
+        return element
+      });
+      
       newState = state.map((element) =>
         element.id === newWorkout.id ? newWorkout : element
       );
