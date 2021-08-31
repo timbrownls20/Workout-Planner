@@ -4,6 +4,23 @@ import _ from "lodash";
 const workoutListReducer = (state, action) => {
   let newState, newWorkout;
 
+  function arraymove(arr, indexFrom, indexTo) {
+    var element = arr[indexFrom];
+    arr.splice(indexFrom, 1);
+    arr.splice(indexTo, 0, element);
+
+    return arr;
+  }
+
+  function reorder(sets) {
+    sets.map((element, index) => {
+      element.order = index + 1;
+      return element;
+    });
+
+    return sets;
+  }
+
   switch (action.type) {
     case Action.LOAD_WORKOUTS:
       newState = action.value;
@@ -11,9 +28,12 @@ const workoutListReducer = (state, action) => {
     case Action.ADD_EXERCISE:
       newWorkout = { ...state.find((e) => e.id === action.value.workoutId) };
 
-      let order = newWorkout.sets.length > 0 ?_.maxBy(newWorkout.sets, (e) => {
-        return e.order
-      }).order + 1: 1;
+      let order =
+        newWorkout.sets.length > 0
+          ? _.maxBy(newWorkout.sets, (e) => {
+              return e.order;
+            }).order + 1
+          : 1;
 
       let exercise = {
         ..._.pick(action.value.exercise, "id", "name"),
@@ -30,12 +50,24 @@ const workoutListReducer = (state, action) => {
         return parseInt(e.order) !== parseInt(action.value.order);
       });
 
-      //..reorder
-      newWorkout.sets.map((element, index) => {
-        element.order = index + 1;
-        return element
-      });
-      
+      reorder(newWorkout.sets);
+
+      newState = state.map((element) =>
+        element.id === newWorkout.id ? newWorkout : element
+      );
+
+      break;
+    case Action.REORDER_EXERCISE:
+      newWorkout = { ...state.find((e) => e.id === action.value.workoutId) };
+
+      newWorkout.sets = arraymove(
+        [...newWorkout.sets],
+        action.value.indexFrom,
+        action.value.indexTo
+      );
+
+      reorder(newWorkout.sets);
+
       newState = state.map((element) =>
         element.id === newWorkout.id ? newWorkout : element
       );

@@ -3,15 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { WorkoutDataContext } from "../context/WorkoutDataContext";
 
-const WorkoutExercise = ({ workoutId, exercise, index }) => {
+const WorkoutExercise = ({ workoutId, exercise, provided, index }) => {
   const { removeExercise } = useContext(WorkoutDataContext);
 
   return (
     <li
       className="list-group-item d-flex workout-exercise justify-content-between"
-      key={index}
-    >
-      <span>
+      index={index}
+      ref={provided.innerRef}
+      {...provided.draggableProps}
+      >
+    
+      <span {...provided.dragHandleProps}>
         {exercise.order}. {exercise.name}
       </span>
       <span>

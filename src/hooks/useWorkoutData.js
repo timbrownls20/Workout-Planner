@@ -31,6 +31,13 @@ const useWorkoutData = () => {
     });
   };
 
+  const reorderExercise = (workoutId, indexFrom, indexTo) => {
+    dispatch({
+      type: WorkoutListActions.REORDER_EXERCISE,
+      value: { workoutId, indexFrom, indexTo },
+    });
+  };
+
   const getSelectedWorkout = () => {
     let workout = workoutList.find((e) => e.id === selectedWorkoutId);
     return workout ? workout : { id: 0, description: "", sets: [] };
@@ -46,6 +53,7 @@ const useWorkoutData = () => {
     selectedWorkout,
     addExercise,
     removeExercise,
+    reorderExercise,
   };
 };
 

@@ -12,6 +12,7 @@ export const WorkoutDataProvider = ({ children }) => {
     selectedWorkout,
     addExercise,
     removeExercise,
+    reorderExercise,
   } = useWorkoutData();
 
   const provider = {
@@ -22,6 +23,7 @@ export const WorkoutDataProvider = ({ children }) => {
     selectedWorkout,
     addExercise,
     removeExercise,
+    reorderExercise
   };
 
   return (
