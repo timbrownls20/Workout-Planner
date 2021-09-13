@@ -4,8 +4,6 @@ import BodyPart from "./BodyPart";
 
 const BodyPartList = ({ provided, data, isDraggingOver }) => {
 
-  data = data.sort(bodyPartSort);
-
   return (
     <div
       className={
@@ -38,15 +36,3 @@ const BodyPartList = ({ provided, data, isDraggingOver }) => {
 export default BodyPartList;
 
 
-const bodyPartSort = (a, b) => {
-
-  if(a.area.id > b.area.id){
-    return 1;
-  }
-  else if(a.area.id < b.area.id){
-    return -1;
-  }
-  else if(a.area.id === b.area.id){
-    return 0;
-  }
-}

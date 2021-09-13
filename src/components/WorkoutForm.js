@@ -51,7 +51,7 @@ const WorkoutForm = () => {
           <div className="col-3 ">
             <ExerciseList add={add} />
           </div>
-          <div className="col-6 d-flex justify-content-left mt-4">
+          <div className="col-7 d-flex justify-content-left mt-4">
             <DragDropContext onDragEnd={onDragEnd}>
               <Droppable droppableId="source">
                 {(provided) => (
@@ -85,7 +85,7 @@ const WorkoutForm = () => {
               </Droppable>
             </DragDropContext>
           </div>
-          <div className="col-3 mt-4">
+          <div className="col-2 mt-4">
             <WorkoutSummary/>
           </div>
           {config.Debug ? (

@@ -1,6 +1,6 @@
 import axios from "axios";
 import Action from "../enums/actions";
-import { bodyPartData } from "../data/referenceData";
+import { bodyPartData } from "../data/bodyPartData";
 import config from "../data/config";
 
 const exerciseListReducer = (state, action) => {
