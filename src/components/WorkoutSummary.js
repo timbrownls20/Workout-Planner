@@ -7,6 +7,8 @@ const WorkoutSummary = () => {
   const { selectedWorkout } = useContext(WorkoutDataContext);
   const { getExerciseById } = useContext(ExerciseDataContext);
 
+  if(selectedWorkout.sets.length === 0) return null;
+
   return (
     <>
       <h5 className="mb-3">Targeted Body Part</h5>
