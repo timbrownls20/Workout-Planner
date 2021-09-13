@@ -18,6 +18,7 @@ export const ExerciseDataProvider = ({children}) => {
         addBodyPart,
         removeBodyPart,
         availableBodyPartsForSelection,
+        getExerciseById,
       } = useExerciseData();
 
       const provider = {
@@ -33,6 +34,7 @@ export const ExerciseDataProvider = ({children}) => {
         addBodyPart,
         removeBodyPart,
         availableBodyPartsForSelection,
+        getExerciseById,
       };
 
     return (

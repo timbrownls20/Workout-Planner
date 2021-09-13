@@ -8,12 +8,13 @@ import { ExerciseDataContext } from "../context/ExerciseDataContext";
 import { FormState } from "../enums/enums";
 import ExerciseList from "./ExerciseList";
 import WorkoutExercise from "./WorkoutExercise";
+import WorkoutSummary from "./WorkoutSummary";
 import config from "../data/config";
 
 const WorkoutForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);
   const { selectedWorkout, addExercise, reorderExercise } = useContext(WorkoutDataContext);
-  const { selectedExercise } = useContext(ExerciseDataContext);
+  const { selectedExercise} = useContext(ExerciseDataContext);
 
   const onDragEnd = (result) => {
 
@@ -50,10 +51,10 @@ const WorkoutForm = () => {
           <div className="col-3 ">
             <ExerciseList add={add} />
           </div>
-          <div className="col-3 d-flex justify-content-center mt-4">
+          <div className="col-6 d-flex justify-content-left mt-4">
             <DragDropContext onDragEnd={onDragEnd}>
               <Droppable droppableId="source">
-                {(provided, snapshot) => (
+                {(provided) => (
                   <ul className="list-group"
                     ref={provided.innerRef}
                     {...provided.droppableProps}
@@ -83,6 +84,9 @@ const WorkoutForm = () => {
                 )}
               </Droppable>
             </DragDropContext>
+          </div>
+          <div className="col-3 mt-4">
+            <WorkoutSummary/>
           </div>
           {config.Debug ? (
             <div className="col-3 d-flex justify-content-center mt-4">

@@ -31,34 +31,39 @@ const exerciseListReducer = (state, action) => {
       ];
       break;
     case Action.EDIT_EXERCISE:
-      newExerciseList = state.map(element => {
+      newExerciseList = state.map((element) => {
         return element.id === action.value.id
           ? { ...element, name: action.value.name }
           : element;
       });
       break;
     case Action.REMOVE_EXERCISE:
-      newExerciseList = state.filter(element => {
+      newExerciseList = state.filter((element) => {
         return element.id !== action.value ? element : null;
       });
       break;
     case Action.ADD_BODYPART:
       newExercise = { ...state.find((e) => e.id === action.value.exerciseId) };
 
-      var bodyPart = bodyPartData.find(element => element.id === parseInt(action.value.bodyPartId));
+      var bodyPart = bodyPartData.find(
+        (element) => element.id === parseInt(action.value.bodyPartId)
+      );
 
       newExercise.bodyParts.push(bodyPart);
-      newExerciseList = state.map(element => element.id === newExercise.id ? newExercise : element
+      newExerciseList = state.map((element) =>
+        element.id === newExercise.id ? newExercise : element
       );
       break;
     case Action.REMOVE_BODYPART:
-      newExercise = { ...state.find(element => element.id === action.value.exerciseId) };
+      newExercise = {
+        ...state.find((element) => element.id === action.value.exerciseId),
+      };
 
       newExercise.bodyParts = newExercise.bodyParts.filter(
         (element) => element.id !== parseInt(action.value.bodyPartId)
       );
 
-      newExerciseList = state.map(element =>
+      newExerciseList = state.map((element) =>
         element.id === newExercise.id ? newExercise : element
       );
       break;
@@ -67,7 +72,6 @@ const exerciseListReducer = (state, action) => {
   }
 
   axios.post(`${config.Server}/exercises`, newExerciseList);
-  
 
   return newExerciseList;
 };

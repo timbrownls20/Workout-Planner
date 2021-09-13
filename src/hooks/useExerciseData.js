@@ -38,6 +38,10 @@ const useExerciseData = () => {
     return exercise ? exercise : { id: 0, name: "", bodyParts: [] };
   };
 
+  const getExerciseById = (id) => {
+    return exerciseList.find((e) => e.id === id);
+  };
+
   const selectFirstExercise = () => {
     if(exerciseList && exerciseList.length > 0){
       setSelectedExerciseId(exerciseList[0].id);
@@ -115,6 +119,7 @@ const useExerciseData = () => {
     addBodyPart,
     removeBodyPart,
     availableBodyPartsForSelection,
+    getExerciseById
   };
 };
 
