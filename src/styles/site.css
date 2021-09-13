@@ -29,6 +29,11 @@
     height: 70%;  
 }
 
+.exercise-no-bodyparts
+{
+    color:silver;
+}
+
 .exercise-list
 {
     margin: 1.2em;

@@ -24,6 +24,7 @@ const ExerciseList = ({add}) => {
             <li
               className={
                 "list-group-item d-flex justify-content-between align-items-center" +
+                (element.bodyParts.length === 0 ? " exercise-no-bodyparts" : "") +
                 (selectedExerciseId === element.id ? " exercise-selected" : "")
               }
               id={element.id}
