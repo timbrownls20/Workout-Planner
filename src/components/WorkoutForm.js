@@ -16,6 +16,8 @@ const WorkoutForm = () => {
   const { selectedExercise } = useContext(ExerciseDataContext);
 
   const onDragEnd = (result) => {
+
+    if(!result.destination) return;
     reorderExercise(selectedWorkout.id, result.draggableId, result.destination.index);
   }
 
