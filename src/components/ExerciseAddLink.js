@@ -4,7 +4,7 @@ import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 import { FormStateContext } from "../context/FormStateContext";
 import { FormState } from "../enums/enums";
 
-const ExerciseAdd = () => {
+const ExerciseAddLink = () => {
   const { setFormState } = useContext(FormStateContext);
 
   return (
@@ -22,4 +22,4 @@ const ExerciseAdd = () => {
   );
 };
 
-export default ExerciseAdd;
+export default ExerciseAddLink;

@@ -4,7 +4,7 @@ import { ExerciseDataContext } from "../context/ExerciseDataContext";
 import BodyPartList from "./BodyPartList";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ExerciseList";
-import ExerciseAdd from "./ExerciseAdd";
+import ExerciseAddLink from "./ExerciseAddLink";
 
 const ExerciseManager = () => {
   const {
@@ -38,7 +38,7 @@ const ExerciseManager = () => {
   return (
     <>
         <div className="row mt-4">
-          <ExerciseAdd></ExerciseAdd>
+          <ExerciseAddLink></ExerciseAddLink>
           <div className="col-7 exercise-heading d-flex justify-content-center">
             <h5>{selectedExercise().name}</h5>
           </div>
