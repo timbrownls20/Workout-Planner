@@ -13,14 +13,18 @@ import config from "../data/config";
 
 const WorkoutForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);
-  const { selectedWorkout, addExercise, reorderExercise } = useContext(WorkoutDataContext);
-  const { selectedExercise} = useContext(ExerciseDataContext);
+  const { selectedWorkout, addExercise, reorderExercise } =
+    useContext(WorkoutDataContext);
+  const { selectedExercise } = useContext(ExerciseDataContext);
 
   const onDragEnd = (result) => {
-
-    if(!result.destination) return;
-    reorderExercise(selectedWorkout.id, result.draggableId, result.destination.index);
-  }
+    if (!result.destination) return;
+    reorderExercise(
+      selectedWorkout.id,
+      result.draggableId,
+      result.destination.index
+    );
+  };
 
   const add = () => {
     addExercise(selectedWorkout.id, selectedExercise());
@@ -38,13 +42,16 @@ const WorkoutForm = () => {
           <div className="col-11 d-flex justify-content-center mt-4">
             <h3>{selectedWorkout ? selectedWorkout.description : ""}</h3>
           </div>
-          <div className="col-1 d-flex justify-content-end">
-            <FontAwesomeIcon
-              icon={faWindowClose}
-              size="2x"
+          <div className="col-1 d-flex justify-content-end align-items-start">
+            <button
+              type="button"
               className="close"
+              data-dismiss="modal"
+              aria-label="Close"
               onClick={() => setFormState(FormState.UNDEFINED)}
-            />
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
         </div>
         <div className="row workout-form-body gx-0">
@@ -55,29 +62,26 @@ const WorkoutForm = () => {
             <DragDropContext onDragEnd={onDragEnd}>
               <Droppable droppableId="source">
                 {(provided) => (
-                  <ul className="list-group"
+                  <ul
+                    className="list-group"
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                   >
                     {selectedWorkout.sets.map((exercise, index) => (
-
                       <Draggable
                         draggableId={index.toString()}
                         key={index}
                         index={index}
                       >
-                        {
-                          provided => (
-                            <WorkoutExercise
-                              workoutId={selectedWorkout.id} 
-                              exercise={exercise} 
-                              provided={provided} 
-                              index={index}
-                              />
-                          )
-                        }
+                        {(provided) => (
+                          <WorkoutExercise
+                            workoutId={selectedWorkout.id}
+                            exercise={exercise}
+                            provided={provided}
+                            index={index}
+                          />
+                        )}
                       </Draggable>
-
                     ))}
                     {provided.placeholder}
                   </ul>
@@ -86,14 +90,13 @@ const WorkoutForm = () => {
             </DragDropContext>
           </div>
           <div className="col-2 mt-4">
-            <WorkoutSummary/>
+            <WorkoutSummary />
           </div>
           {config.Debug ? (
             <div className="col-3 d-flex justify-content-center mt-4">
               <code>{JSON.stringify(selectedWorkout)}</code>
             </div>
-          ) : null
-          }
+          ) : null}
         </div>
       </div>
     </div>
