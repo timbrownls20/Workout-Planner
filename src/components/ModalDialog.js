@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { FormState } from "../enums/enums";
 import { FormStateContext } from "../context/FormStateContext";
 
-const ModalDialog = ({ children, title, hide, save, remove }) => {
+const ModalDialog = ({ children, title, hide, save, remove, activationState }) => {
   const { formState } = useContext(FormStateContext);
 
   return (
     <div
       className={
-        "modal" + (formState !== FormState.UNDEFINED ? " modal-show" : "")
+        "modal" + ((activationState && formState === activationState) || (!activationState && formState !== FormState.UNDEFINED) ? " modal-show" : "")
       }
       tabIndex="-1"
       role="dialog"

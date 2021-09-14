@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import axios from "axios";
+import _ from "lodash";
 import workoutListReducer from "../reducers/workoutListReducer";
 import config from "../data/config";
 import {
@@ -16,6 +17,16 @@ const useWorkoutData = () => {
     let res = await axios.get(route);
     dispatch({ type: Actions.LOAD_WORKOUTS, value: res.data });
   }
+
+  const addWorkout = (name) => {
+
+    if(_.isEmpty(name)) return;
+
+    dispatch({
+      type: WorkoutListActions.ADD_WORKOUT,
+      value: name,
+    });
+  };
 
   const addExercise = (workoutId, exercise) => {
     dispatch({
@@ -48,6 +59,7 @@ const useWorkoutData = () => {
   return {
     workoutList,
     loadWorkouts,
+    addWorkout,
     selectedWorkoutId,
     setSelectedWorkoutId,
     selectedWorkout,

@@ -7,6 +7,7 @@ export const WorkoutDataProvider = ({ children }) => {
   const {
     workoutList,
     loadWorkouts,
+    addWorkout,
     selectedWorkoutId,
     setSelectedWorkoutId,
     selectedWorkout,
@@ -18,6 +19,7 @@ export const WorkoutDataProvider = ({ children }) => {
   const provider = {
     workoutList,
     loadWorkouts,
+    addWorkout,
     selectedWorkoutId,
     setSelectedWorkoutId,
     selectedWorkout,

@@ -1,16 +1,12 @@
 import React, { useEffect, useContext } from "react";
 import Workout from "./Workout";
 import { WorkoutDataContext } from "../context/WorkoutDataContext";
-import WorkoutForm from "./WorkoutForm";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
-import { FormStateContext } from "../context/FormStateContext";
-import { FormState } from "../enums/enums";
+import WorkoutEditForm from "./WorkoutEditForm";
+import WorkoutAddForm from "./WorkoutAddForm";
 
 const WorkoutManager = () => {
   const { workoutList, loadWorkouts } = useContext(WorkoutDataContext);
-  const { setFormState } = useContext(FormStateContext);
-
+  
   useEffect(() => {
     loadWorkouts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -20,17 +16,7 @@ const WorkoutManager = () => {
     <>
       <div className="mt-4">
         <div className="row">
-          <div
-            className="col-12 d-flex justify-content-start exercises-toolbar"
-            onClick={() => setFormState(FormState.NEW)}
-          >
-            <div>
-              <FontAwesomeIcon icon={faPlusSquare} size="1x" />
-            </div>
-            <div>
-              <small>Add new workout</small>
-            </div>
-          </div>
+          <WorkoutAddForm />
         </div>
         <div className="row">
           <div className="col-12 d-flex justify-content-center">
@@ -40,7 +26,7 @@ const WorkoutManager = () => {
           </div>
         </div>
       </div>
-      <WorkoutForm />
+      <WorkoutEditForm />
     </>
   );
 };

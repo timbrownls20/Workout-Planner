@@ -25,6 +25,15 @@ const workoutListReducer = (state, action) => {
     case Action.LOAD_WORKOUTS:
       newState = action.value;
       break;
+    case Action.ADD_WORKOUT:
+      let newId =
+        state.reduce((acc, item) => {
+          return parseInt(item.id) > acc ? parseInt(item.id) : acc;
+        }, 0) + 1;
+
+      newState = [{ id: newId, name: action.value, sets: [] }, ...state];
+      break;
+
     case Action.ADD_EXERCISE:
       newWorkout = { ...state.find((e) => e.id === action.value.workoutId) };
 

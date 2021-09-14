@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 import { FormStateContext } from "../context/FormStateContext";
 import { WorkoutDataContext } from "../context/WorkoutDataContext";
 import { ExerciseDataContext } from "../context/ExerciseDataContext";
@@ -11,7 +9,7 @@ import WorkoutExercise from "./WorkoutExercise";
 import WorkoutSummary from "./WorkoutSummary";
 import config from "../data/config";
 
-const WorkoutForm = () => {
+const WorkoutEditForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);
   const { selectedWorkout, addExercise, reorderExercise } =
     useContext(WorkoutDataContext);
@@ -40,7 +38,7 @@ const WorkoutForm = () => {
       <div className="overlay-inner">
         <div className="row workout-form-header gx-0">
           <div className="col-11 d-flex justify-content-center mt-4">
-            <h3>{selectedWorkout ? selectedWorkout.description : ""}</h3>
+            <h3>{selectedWorkout ? selectedWorkout.name : ""}</h3>
           </div>
           <div className="col-1 d-flex justify-content-end align-items-start">
             <button
@@ -103,4 +101,4 @@ const WorkoutForm = () => {
   );
 };
 
-export default WorkoutForm;
+export default WorkoutEditForm;

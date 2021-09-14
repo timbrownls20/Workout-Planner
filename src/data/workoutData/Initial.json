@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "description": "Workout 1",
+        "name": "Workout 1",
         "sets": []
     }   
 ]
