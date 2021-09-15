@@ -99,11 +99,19 @@
     height: 90%;
 }
 
+.workout-exercise-list
+{
+    height: inherit;
+}
+
 .workout-exercise
 {
-    min-width:300px;
+    width:300px;
     padding:0.8em;
-    
+    margin: 0.4em;
+    border-style: solid;
+    border-color: silver;
+    border-width: 0px 1px 1px 1px;
 }
 
 .workout-exercise>span:first-of-type

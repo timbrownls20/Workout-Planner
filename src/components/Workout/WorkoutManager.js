@@ -19,7 +19,7 @@ const WorkoutManager = () => {
           <WorkoutAddForm />
         </div>
         <div className="row">
-          <div className="col-12 d-flex justify-content-center">
+          <div className="col-12 d-flex flex-wrap justify-content-center">
             {workoutList.map((element) => {
               return <Workout workout={element} key={element.id}></Workout>;
             })}

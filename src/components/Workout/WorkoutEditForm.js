@@ -56,37 +56,37 @@ const WorkoutEditForm = () => {
           <div className="col-3 ">
             <ExerciseList add={add} />
           </div>
-          <div className="col-7 d-flex justify-content-left mt-4">
-            <DragDropContext onDragEnd={onDragEnd}>
-              <Droppable droppableId="source">
-                {(provided) => (
-                  <ul
-                    className="list-group"
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
-                  >
-                    {selectedWorkout.sets.map((exercise, index) => (
-                      <Draggable
-                        draggableId={index.toString()}
-                        key={index}
-                        index={index}
-                      >
-                        {(provided) => (
-                          <WorkoutExercise
-                            workoutId={selectedWorkout.id}
-                            exercise={exercise}
-                            provided={provided}
-                            index={index}
-                          />
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </ul>
-                )}
-              </Droppable>
-            </DragDropContext>
-          </div>
+
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="source">
+              {(provided) => (
+                <div
+                  className="col-7 mt-4 workout-exercise-list d-flex flex-column flex-wrap align-content-start"
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                >
+                  {selectedWorkout.sets.map((exercise, index) => (
+                    <Draggable
+                      draggableId={index.toString()}
+                      key={index}
+                      index={index}
+                    >
+                      {(provided) => (
+                        <WorkoutExercise
+                          workoutId={selectedWorkout.id}
+                          exercise={exercise}
+                          provided={provided}
+                          index={index}
+                        />
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
+
           <div className="col-2 mt-4">
             <WorkoutSummary />
           </div>

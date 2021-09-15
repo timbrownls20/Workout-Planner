@@ -7,8 +7,8 @@ const WorkoutExercise = ({ workoutId, exercise, provided, index }) => {
   const { removeExercise } = useContext(WorkoutDataContext);
 
   return (
-    <li
-      className="list-group-item d-flex workout-exercise justify-content-between"
+    <div
+      className="d-flex workout-exercise justify-content-between"
       index={index}
       ref={provided.innerRef}
       {...provided.draggableProps}
@@ -27,7 +27,7 @@ const WorkoutExercise = ({ workoutId, exercise, provided, index }) => {
           }}
         />
       </span>
-    </li>
+    </div>
   );
 };
 
