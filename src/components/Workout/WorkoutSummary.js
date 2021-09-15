@@ -43,7 +43,7 @@ const WorkoutSummary = () => {
                     });
 
                     return (
-                        <li className="m-2">
+                        <li className="m-2" key={bodyAreaSets.id}>
                             {area.name} ({bodyAreaSets.length})
                             <ul>
                                 {bodyPartDetail}

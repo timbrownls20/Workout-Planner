@@ -75,7 +75,7 @@
 {
     margin: 1em;
     width: 20em;
-    height: 10em;
+    min-height: 10em;
     transition: ease-in 0.1s;
     cursor: pointer;
 }
@@ -84,7 +84,7 @@
 {
     background-color: skyblue;
     width: 22em;
-    height: 12em;
+    min-height: 12em;
     transition: ease-in 0.1s;
 }
 
