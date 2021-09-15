@@ -45,6 +45,11 @@ app.get("/workouts", async (req, res) => {
   res.send(JSON.parse(data));
 });
 
+app.post("/workouts", async (req, res) => {
+  await saveData("src/data/workoutData/Current.json", req.body);
+  res.sendStatus(200);
+});
+
 async function loadData(filePath) {
   const data = await fs.readFile(filePath);
   return data;

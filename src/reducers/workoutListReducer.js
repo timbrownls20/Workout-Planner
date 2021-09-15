@@ -1,5 +1,7 @@
 import { WorkoutListActions as Action } from "../enums/actions";
+import axios from 'axios';
 import _ from "lodash";
+import config from "../data/config";
 
 const workoutListReducer = (state, action) => {
   let newState, newWorkout;
@@ -85,6 +87,8 @@ const workoutListReducer = (state, action) => {
     default:
       newState = state;
   }
+
+  axios.post(`${config.Server}/workouts`, newState);
 
   return newState;
 };
