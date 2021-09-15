@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
-import { FormStateContext } from "../context/FormStateContext";
-import { FormState } from "../enums/enums";
+import { FormStateContext } from "../../context/FormStateContext";
+import { FormState } from "../../enums/enums";
 
 const ExerciseAddLink = () => {
   const { setFormState } = useContext(FormStateContext);

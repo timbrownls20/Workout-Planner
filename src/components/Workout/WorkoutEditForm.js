@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { FormStateContext } from "../context/FormStateContext";
-import { WorkoutDataContext } from "../context/WorkoutDataContext";
-import { ExerciseDataContext } from "../context/ExerciseDataContext";
-import { FormState } from "../enums/enums";
-import ExerciseList from "./ExerciseList";
+import { FormStateContext } from "../../context/FormStateContext";
+import { WorkoutDataContext } from "../../context/WorkoutDataContext";
+import { ExerciseDataContext } from "../../context/ExerciseDataContext";
+import { FormState } from "../../enums/enums";
+import ExerciseList from "../Exercise/ExerciseList";
 import WorkoutExercise from "./WorkoutExercise";
 import WorkoutSummary from "./WorkoutSummary";
-import config from "../data/config";
+import config from "../../data/config";
 
 const WorkoutEditForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);

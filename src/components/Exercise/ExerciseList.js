@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { ExerciseDataContext } from "../context/ExerciseDataContext";
-import { FormStateContext } from "../context/FormStateContext";
-import { FormState } from "../enums/enums";
-import config from "../data/config";
+import { ExerciseDataContext } from "../../context/ExerciseDataContext";
+import { FormStateContext } from "../../context/FormStateContext";
+import { FormState } from "../../enums/enums";
+import config from "../../data/config";
 
 const ExerciseList = ({add}) => {
   const { setFormState } = useContext(FormStateContext);

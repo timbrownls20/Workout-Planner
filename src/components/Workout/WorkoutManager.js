@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import Workout from "./Workout";
-import { WorkoutDataContext } from "../context/WorkoutDataContext";
+import { WorkoutDataContext } from "../../context/WorkoutDataContext";
 import WorkoutEditForm from "./WorkoutEditForm";
 import WorkoutAddForm from "./WorkoutAddForm";
 

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { FormState } from "../enums/enums";
-import { FormStateContext } from "../context/FormStateContext";
-import { WorkoutDataContext } from "../context/WorkoutDataContext";
+import { FormState } from "../../enums/enums";
+import { FormStateContext } from "../../context/FormStateContext";
+import { WorkoutDataContext } from "../../context/WorkoutDataContext";
 
 const WorkoutAddForm = () => {
   const { setFormState } = useContext(FormStateContext);

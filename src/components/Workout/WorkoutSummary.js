@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { WorkoutDataContext } from "../context/WorkoutDataContext";
-import { ExerciseDataContext } from "../context/ExerciseDataContext";
-import { bodyPartData, bodyPartAreas } from "../data/bodyPartData";
+import { WorkoutDataContext } from "../../context/WorkoutDataContext";
+import { ExerciseDataContext } from "../../context/ExerciseDataContext";
+import { bodyPartData, bodyPartAreas } from "../../data/bodyPartData";
 
 const WorkoutSummary = () => {
     const { selectedWorkout } = useContext(WorkoutDataContext);

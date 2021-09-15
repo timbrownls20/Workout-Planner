@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import { WorkoutDataContext } from "../context/WorkoutDataContext";
+import { WorkoutDataContext } from "../../context/WorkoutDataContext";
 
 const WorkoutExercise = ({ workoutId, exercise, provided, index }) => {
   const { removeExercise } = useContext(WorkoutDataContext);

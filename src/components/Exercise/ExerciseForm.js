@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { FormState } from "../enums/enums";
-import { FormStateContext } from "../context/FormStateContext";
-import { ExerciseDataContext } from "../context/ExerciseDataContext";
-import ModalDialog from "./ModalDialog";
+import { FormState } from "../../enums/enums";
+import { FormStateContext } from "../../context/FormStateContext";
+import { ExerciseDataContext } from "../../context/ExerciseDataContext";
+import ModalDialog from "../ModalDialog";
 
 const ExerciseForm = () => {
   const { formState, setFormState } = useContext(FormStateContext);
